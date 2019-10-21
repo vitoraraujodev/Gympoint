@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import User from './app/models/User';
+import SessionController from './app/controllers/SessionController';
 
 const routes = new Router();
 
@@ -10,4 +11,5 @@ routes.get('/', async (req, res) => {
   return res.json({ user: { name, email } });
 });
 
+routes.post('/sessions', SessionController.store);
 export default routes;
