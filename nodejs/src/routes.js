@@ -14,5 +14,6 @@ routes.post('/students', authMiddleware, StudentController.store);
 
 routes.post('/plans', authMiddleware, PlanController.store);
 routes.get('/plans', authMiddleware, PlanController.index);
+routes.put('/plans/:id', authMiddleware, PlanController.update);
 
 export default routes;
