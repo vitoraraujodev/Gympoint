@@ -43,6 +43,13 @@ class PlanController {
 
     return res.json({ title, duration, price });
   }
+
+  async delete(req, res) {
+    const plan = await Plan.findByPk(req.params.id);
+    await plan.destroy();
+
+    return res.json({ okay: true });
+  }
 }
 
 export default new PlanController();
