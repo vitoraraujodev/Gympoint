@@ -1,9 +1,12 @@
 import * as Yup from 'yup';
-import { parseISO, addMonths, isBefore } from 'date-fns';
+import { parseISO, addMonths, isBefore, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 
 import Registration from '../models/Registration';
 import Plan from '../models/Plan';
 import Student from '../models/Student';
+
+import Mail from '../../lib/Mail';
 
 class RegistrationController {
   async index(req, res) {
@@ -63,6 +66,23 @@ class RegistrationController {
       start_date,
       end_date,
       price,
+    });
+
+    await Mail.sendMail({
+      to: `${student.name} <${student.email}>`,
+      subject: 'Gympoint | Seja Bem-Vindo!',
+      template: 'registration',
+      context: {
+        student: student.name,
+        title: plan.title,
+        end_date: format(
+          registration.end_date,
+          "'dia' dd 'de' MMMM', às' H:mm'h'",
+          {
+            locale: pt,
+          }
+        ),
+      },
     });
 
     return res.json(registration);
