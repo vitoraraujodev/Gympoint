@@ -40,13 +40,13 @@ class RegistrationController {
     const student = await Student.findByPk(student_id);
 
     if (!student) {
-      return res.status(400).json({ error: 'Student does not exists' });
+      return res.status(401).json({ error: 'Student does not exists' });
     }
 
     const plan = await Plan.findByPk(plan_id);
 
     if (!plan) {
-      return res.status(400).json({ error: 'Plan does not exists' });
+      return res.status(401).json({ error: 'Plan does not exists' });
     }
 
     if (isBefore(parseISO(start_date), new Date())) {
@@ -67,11 +67,12 @@ class RegistrationController {
 
     return res.json(registration);
   }
-  /* 
+
   async update(req, res) {
     const schema = Yup.object().shape({
-      plan_id: Yup.number().required(),
-      start_date: Yup.date().required(),
+      student_id: Yup.number(),
+      plan_id: Yup.number(),
+      start_date: Yup.date(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -80,17 +81,52 @@ class RegistrationController {
 
     const registration = await Registration.findByPk(req.params.id);
 
-    const { title, duration, price } = await registration.update(req.body);
+    const { student_id, plan_id, start_date } = req.body; // eslint-disable-line
 
-    return res.json({ title, duration, price });
+    if (student_id !== registration.student_id) { // eslint-disable-line
+      const student = await Student.findByPk(student_id);
+
+      if (!student) {
+        return res.status(401).json({ error: 'Student does not exists' });
+      }
+    }
+
+    const plan = await Plan.findByPk(plan_id);
+
+    if (!plan) {
+      return res.status(401).json({ error: 'Plan does not exists' });
+    }
+
+    if (isBefore(parseISO(start_date), new Date())) {
+      return res.status(400).json({ error: 'Past dates are not permitted.' });
+    }
+
+    const end_date = addMonths(parseISO(start_date), plan.duration); // eslint-disable-line
+
+    const price = plan.duration * plan.price;
+
+    const newRegistration = await registration.update({
+      student_id,
+      plan_id,
+      start_date,
+      end_date,
+      price,
+    });
+
+    return res.json(newRegistration);
   }
 
   async delete(req, res) {
     const registration = await Registration.findByPk(req.params.id);
+
+    if (!registration) {
+      return res.status(401).json({ error: 'Registration does not exists' });
+    }
+
     await registration.destroy();
 
     return res.json({ okay: true });
-  } */
+  }
 }
 
 export default new RegistrationController();

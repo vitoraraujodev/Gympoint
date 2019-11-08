@@ -11,15 +11,19 @@ const routes = new Router();
 
 routes.post('/sessions', SessionController.store);
 
-routes.post('/students', authMiddleware, StudentController.store);
-routes.put('/students/:id', authMiddleware, StudentController.update);
+routes.use(authMiddleware);
 
-routes.get('/plans', authMiddleware, PlanController.index);
-routes.post('/plans', authMiddleware, PlanController.store);
-routes.put('/plans/:id', authMiddleware, PlanController.update);
-routes.delete('/plans/:id', authMiddleware, PlanController.delete);
+routes.post('/students', StudentController.store);
+routes.put('/students/:id', StudentController.update);
 
-routes.get('/registrations', authMiddleware, RegistrationController.index);
-routes.post('/registrations', authMiddleware, RegistrationController.store);
+routes.get('/plans', PlanController.index);
+routes.post('/plans', PlanController.store);
+routes.put('/plans/:id', PlanController.update);
+routes.delete('/plans/:id', PlanController.delete);
+
+routes.get('/registrations', RegistrationController.index);
+routes.post('/registrations', RegistrationController.store);
+routes.put('/registrations/:id', RegistrationController.update);
+routes.delete('/registrations/:id', RegistrationController.delete);
 
 export default routes;

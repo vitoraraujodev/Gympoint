@@ -39,6 +39,10 @@ class PlanController {
 
     const plan = await Plan.findByPk(req.params.id);
 
+    if (!plan) {
+      return res.status(401).json({ error: 'Plan does not exists' });
+    }
+
     const { title, duration, price } = await plan.update(req.body);
 
     return res.json({ title, duration, price });
@@ -46,6 +50,11 @@ class PlanController {
 
   async delete(req, res) {
     const plan = await Plan.findByPk(req.params.id);
+
+    if (!plan) {
+      return res.status(401).json({ error: 'Plan does not exists' });
+    }
+
     await plan.destroy();
 
     return res.json({ okay: true });
