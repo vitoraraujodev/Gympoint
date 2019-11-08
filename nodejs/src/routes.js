@@ -11,6 +11,7 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 
 routes.post('/students', authMiddleware, StudentController.store);
+routes.put('/students/:id', authMiddleware, StudentController.update);
 
 routes.post('/plans', authMiddleware, PlanController.store);
 routes.get('/plans', authMiddleware, PlanController.index);
