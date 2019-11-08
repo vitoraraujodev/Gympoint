@@ -4,10 +4,11 @@ import User from '../app/models/User';
 import Student from '../app/models/Student';
 import Plan from '../app/models/Plan';
 import Registration from '../app/models/Registration';
+import Checkin from '../app/models/Checkin';
 
 import databaseConfig from '../config/database';
 
-const models = [User, Student, Plan, Registration]; // Todos os models a serem carregados
+const models = [User, Student, Plan, Registration, Checkin]; // Todos os models a serem carregados
 
 class Database {
   constructor() {
