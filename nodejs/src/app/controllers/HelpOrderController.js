@@ -2,6 +2,10 @@ import * as Yup from 'yup';
 import HelpOrder from '../models/HelpOrder';
 import Student from '../models/Student';
 
+import AnswerMail from '../jobs/AnswerMail';
+
+import Queue from '../../lib/Queue';
+
 class HelpOrderController {
   async index(req, res) {
     const student_id = req.params.id; //eslint-disable-line
@@ -67,11 +71,19 @@ class HelpOrderController {
       return res.status(401).json({ error: 'Help order does not exists.' });
     }
 
+    const student = await Student.findByPk(helpOrder.student_id);
+
+    if (!student) {
+      return res.status(401).json({ error: 'Student does not exists.' });
+    }
+
     const { answer } = req.body;
 
     const answer_at = new Date(); //eslint-disable-line
 
     const newHelpOrder = await helpOrder.update({ answer, answer_at });
+
+    await Queue.add(AnswerMail.key, { student, helpOrder, answer });
 
     return res.json(newHelpOrder);
   }
