@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
+import { Switch } from 'react-router-dom';
+import Route from './Route';
 import SignIn from '~/pages/SignIn';
 
 import HelpOrderList from '~/pages/ListPages/HelpOrder';
@@ -19,7 +19,7 @@ import StudentCadastration from '~/pages/CadastrationPages/Student';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={SignIn} />
+      <Route path="/" exact component={SignIn} notPrivate />
       <Route path="/students" exact component={StudentList} />
       <Route path="/students/new" component={StudentCadastration} />
       <Route path="/students/edit/:id" component={StudentEdition} />
