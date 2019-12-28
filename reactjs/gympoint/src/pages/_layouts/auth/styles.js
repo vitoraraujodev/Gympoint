@@ -59,6 +59,7 @@ export const Content = styled.div`
         color: #999;
       }
     }
+
     button {
       margin: 5px 0 0;
       height: 44px;
@@ -69,6 +70,7 @@ export const Content = styled.div`
       border-radius: 4px;
       font-size: 16px;
       margin-bottom: 20px;
+      overflow: hidden;
       transition: background 0.2s;
       &:hover {
         background: ${darken(0.03, '#ee4d64')};
