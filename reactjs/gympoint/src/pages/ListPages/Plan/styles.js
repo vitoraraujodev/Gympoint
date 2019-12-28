@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 16px 0;
-    width: 1200px;
+    width: 900px;
 
     strong {
       font-size: 24px;
@@ -17,37 +17,20 @@ export const Container = styled.div`
       font-weight: bold;
     }
 
-    aside {
-      align-items: center;
+    button {
+      background: #ee4d64;
+      border: 0;
+      border-radius: 4px;
+      height: 36px;
+      width: 140px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      overflow: hidden;
+      transition: background 0.2s;
 
-      button {
-        background: #ee4d64;
-        border: 0;
-        border-radius: 4px;
-        height: 36px;
-        width: 140px;
-        color: #fff;
-        font-weight: bold;
-        font-size: 14px;
-        overflow: hidden;
-        transition: background 0.2s;
-        margin-right: 16px;
-
-        &:hover {
-          background: ${darken(0.05, '#ee4d64')};
-        }
-      }
-
-      input {
-        background: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        height: 36px;
-        padding: 0 15px;
-        color: #333;
-        &::placeholder {
-          color: #999;
-        }
+      &:hover {
+        background: ${darken(0.05, '#ee4d64')};
       }
     }
   }
