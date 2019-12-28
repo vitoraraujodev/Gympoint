@@ -67,7 +67,7 @@ export const Table = styled.table`
   }
 
   tr td {
-    padding: 16px;
+    padding: 16px 0;
     font-size: 16px;
     border-bottom: 1px solid #eee;
     color: #666;

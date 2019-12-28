@@ -6,7 +6,7 @@ export default function PlanList() {
   return (
     <Container>
       <div>
-        <strong>Gerenciando planos</strong>
+        <strong>Gerenciando matrículas</strong>
         <button type="button">CADASTRAR</button>
       </div>
 

@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 16px 0;
-    width: 900px;
+    width: 1380px;
 
     strong {
       font-size: 24px;
@@ -28,6 +28,7 @@ export const Container = styled.div`
       font-size: 14px;
       overflow: hidden;
       transition: background 0.2s;
+      margin-right: 16px;
 
       &:hover {
         background: ${darken(0.05, '#ee4d64')};
