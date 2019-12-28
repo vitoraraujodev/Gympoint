@@ -46,7 +46,7 @@ export const Table = styled.table`
   th {
     color: #444;
     font-size: 16px;
-    padding: 20px;
+    padding: 20px 0;
   }
 
   tr td {
