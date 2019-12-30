@@ -2,12 +2,20 @@ import React from 'react';
 
 import { Container, Table, EditLink, DeleteLink } from './styles';
 
+import history from '~/services/history';
+
 export default function PlanList() {
+  function handleCadastration(route) {
+    history.push(route);
+  }
+
   return (
     <Container>
       <div>
         <strong>Gerenciando matrículas</strong>
-        <button type="button">CADASTRAR</button>
+        <button type="button" onClick={() => handleCadastration('/plans/new')}>
+          CADASTRAR
+        </button>
       </div>
 
       <Table>

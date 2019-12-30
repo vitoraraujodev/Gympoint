@@ -1,14 +1,23 @@
 import React from 'react';
-
 import { Container, Table, EditLink, DeleteLink } from './styles';
+import history from '~/services/history';
 
 export default function StudentList() {
+  function handleCadastration(route) {
+    history.push(route);
+  }
+
   return (
     <Container>
       <div>
         <strong>Gerenciando alunos</strong>
         <aside>
-          <button type="button">CADASTRAR</button>
+          <button
+            type="button"
+            onClick={() => handleCadastration('/students/new')}
+          >
+            CADASTRAR
+          </button>
           <input placeholder="Buscar aluno" />
         </aside>
       </div>

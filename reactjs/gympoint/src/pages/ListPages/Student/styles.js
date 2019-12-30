@@ -53,6 +53,24 @@ export const Container = styled.div`
   }
 `;
 
+export const CadastrationButton = styled(Link)`
+  background: #ee4d64;
+  border: 0;
+  border-radius: 4px;
+  height: 36px;
+  width: 140px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  overflow: hidden;
+  transition: background 0.2s;
+  margin-right: 16px;
+
+  &:hover {
+    background: ${darken(0.05, '#ee4d64')};
+  }
+`;
+
 export const Table = styled.table`
   background: #fff;
   padding: 10px 30px;
