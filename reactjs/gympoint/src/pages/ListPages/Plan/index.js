@@ -39,7 +39,7 @@ export default function PlanList() {
             <td align="center">1 mês</td>
             <td align="center">R$129,00</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/plans/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
@@ -48,7 +48,7 @@ export default function PlanList() {
             <td align="center">3 meses</td>
             <td align="center">R$109,00</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/plans/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
@@ -57,7 +57,7 @@ export default function PlanList() {
             <td align="center">6 meses</td>
             <td align="center">R$89,00</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/plans/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
