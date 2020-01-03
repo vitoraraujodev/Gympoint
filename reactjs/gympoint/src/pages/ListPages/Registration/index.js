@@ -49,7 +49,7 @@ export default function RegistrationList() {
             <td align="center">30 de Maio de 2019</td>
             <td align="center">Não</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/registrations/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
@@ -60,7 +60,7 @@ export default function RegistrationList() {
             <td align="center">14 de Abril de 2020</td>
             <td align="center">Sim</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/registrations/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
