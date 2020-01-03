@@ -43,7 +43,7 @@ export default function StudentList() {
             <td>jillclever@gmail.com</td>
             <td align="center">50</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/students/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
@@ -52,7 +52,7 @@ export default function StudentList() {
             <td>Smith</td>
             <td align="center">50</td>
             <td>
-              <EditLink>editar</EditLink>
+              <EditLink to="/students/edit/1">editar</EditLink>
               <DeleteLink>apagar</DeleteLink>
             </td>
           </tr>
